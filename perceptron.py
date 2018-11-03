@@ -7,7 +7,7 @@ class Perceptron:
     :param float eta: learning rate (between 0 and 1)
     :param int n_iter: training iterations
     :param int random_state: random number generator seed for random weight initialisation
-    :param np.ndarray weights_: weights after fitting
+    :param np.array weights_: weights after fitting
     :param list errors_: number of mis-classifications (updates) in each epoch
     """
 
@@ -16,13 +16,13 @@ class Perceptron:
         self.n_iter = n_iter
         self.random_state = random_state
 
-        self.weights_ = np.ndarray([])
+        self.weights_ = np.array([])
         self.errors_ = []
 
     def fit(self, X, y):
         """Fit training data.
-        :param np.ndarray X: training vectors in a matrix of size n_samples by n_features
-        :param np.ndarray y: target values in a vector
+        :param np.array X: training vectors in a matrix of size n_samples by n_features
+        :param np.array y: target values in a vector
 
         :return Perceptron:
         """
@@ -44,9 +44,9 @@ class Perceptron:
     def net_input(self, X):
         """Calculate net input.
 
-        :param np.ndarray X: input values to net
+        :param np.array X: input values to net
 
-        :return np.ndarray: net input
+        :return np.array: net input
         """
         net_input = np.dot(X, self.weights_[1:]) + self.weights_[0]
         return net_input
@@ -54,7 +54,7 @@ class Perceptron:
     def predict(self, X):
         """Predict class label after unit step.
 
-        :param np.ndarray X: input values to predict on
+        :param np.array X: input values to predict on
         """
         predictions = np.where(self.net_input(X) >= 0, 1, -1)
         return predictions
