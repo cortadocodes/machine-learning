@@ -4,6 +4,16 @@ import numpy as np
 class Perceptron:
     """Perceptron classifier.
 
+    A linear classifier that mimics a single neuron, either "firing" or not depending on its inputs.
+
+    Type: supervised - binary classification
+
+    Advantages:
+    * Guaranteed to converge if training data is linearly separable
+
+    Disadvantages:
+    * Will only converge if the training data is linearly separable
+
     :param float eta: learning rate (between 0 and 1)
     :param int n_iter: training iterations
     :param int random_state: random number generator seed for random weight initialisation
