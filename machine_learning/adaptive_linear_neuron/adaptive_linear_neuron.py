@@ -36,11 +36,10 @@ class AdaptiveLinearNeuron:
 
         for i in range(self.number_of_training_iterations):
             net_input = self.net_input(samples)
-            output = self.activation(net_input)
-            errors = true_labels - output
+            errors = true_labels - self.activation(net_input)
             self.weights[0] += self.learning_rate * errors.sum()
             self.weights[1:] += self.learning_rate * samples.T.dot(errors)
-            self.cost.append(self.cost(errors))
+            self.cost.append(self.calculate_cost(errors))
 
         return self
 
@@ -50,17 +49,17 @@ class AdaptiveLinearNeuron:
         :param np.array samples: shape (n_samples, n_features)
         :return float:
         """
-        return np.dot(samples, self.weights[1:]) + self.weights[0]
+        return self.weights[0] + np.dot(samples, self.weights[1:])
 
-    def activation(self, samples):
-        """Calculate the linear activation.
+    def activation(self, net_input):
+        """Calculate the linear activation of the net input.
 
-        :param np.array samples: shape (n_samples, n_features)
+        :param np.array net_input: shape (n_samples)
         :return np.array:
         """
-        return samples
+        return net_input
 
-    def cost(self, errors):
+    def calculate_cost(self, errors):
         """Calculate the value of the cost function.
 
         :param np.array errors: shape (n_samples)

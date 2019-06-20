@@ -3,7 +3,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 import pandas as pd
 
-from perceptron import Perceptron
+from machine_learning.perceptron import Perceptron
 
 
 IRIS_DATASET_LOCATION = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
