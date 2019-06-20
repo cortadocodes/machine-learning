@@ -1,36 +1,11 @@
 from matplotlib.colors import ListedColormap
 from matplotlib import pyplot as plt
 import numpy as np
-import pandas as pd
+
+from machine_learning.datasets.iris import samples
+from machine_learning.datasets.iris import binary_labels
 
 from machine_learning.perceptron import Perceptron
-
-
-IRIS_DATASET_LOCATION = 'https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data'
-
-
-def extract_and_convert_labels(dataframe, number_of_samples=100, label_column_index=4):
-    """ Extract and convert the English binary_labels to binary binary_labels (-1 for Iris-setosa; 1 otherwise)
-
-    :param pd.DataFrame dataframe:
-    :param int number_of_samples:
-    :param int label_column_index:
-    :return np.array:
-    """
-    labels = dataframe.iloc[0:number_of_samples, label_column_index].values
-    return np.where(labels == 'Iris-setosa', -1, 1)
-
-
-def extract_samples(dataframe, number_of_samples=100, feature_column_indices=None):
-    """ Extract samples.
-
-    :param pd.DataFrame dataframe:
-    :param int number_of_samples:
-    :param list(int) feature_column_indices:
-    :return pd.DataFrame:
-    """
-    feature_column_indices = feature_column_indices or [0, 2]
-    return dataframe.iloc[0:number_of_samples, feature_column_indices].values
 
 
 def plot_data(samples):
@@ -112,9 +87,6 @@ def plot_decision_regions(samples, labels, classifier, resolution=0.02):
 
 
 if __name__ == '__main__':
-    iris_dataset = pd.read_csv(IRIS_DATASET_LOCATION, header=None)
-    samples = extract_samples(iris_dataset)
-    binary_labels = extract_and_convert_labels(iris_dataset)
     plot_data(samples)
 
     perceptron = Perceptron(learning_rate=0.1, number_of_training_iterations=10)
