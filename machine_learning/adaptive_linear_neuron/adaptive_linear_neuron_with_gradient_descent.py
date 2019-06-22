@@ -1,20 +1,25 @@
 import numpy as np
 
 
-class AdaptiveLinearNeuron:
-    """An adaptive linear neuron (Adaline); an improvement on the perceptron.
+class AdaptiveLinearNeuronWithGradientDescent:
+    """An adaptive linear neuron (Adaline); an improvement on the perceptron. This Adaline uses gradient descent to
+    arrive at the global cost minimum.
 
-    Type: supervised - binary classification
+    Type: supervised - binary classification.
+
+    Notes:
+    * Uses a linear activation function in calculating errors
+    * Uses a sum-squared-error (SSE) function as the cost function
     """
 
     def __init__(self, learning_rate=0.01, number_of_training_iterations=50, random_state_seed=1):
-        """Initialise a AdaptiveLinearNeuron. Note that for the learning rate to have an effect on the classification
-        outcome, the weights must be initialised to non-zero values.
+        """Initialise an adaptive linear neuron that uses gradient descent. Note that for the learning rate to
+        have an effect on the classification outcome, the weights must be initialised to non-zero values.
 
         :param float learning_rate: should be between 0 and 1
         :param int number_of_training_iterations:
         :param int random_state_seed: for random weight initialisation
-        :var np.array weights: internal weights of the AdaptiveLinearNeuron
+        :var np.array weights: internal weights of the AdaptiveLinearNeuronWithGradientDescent
         :var list(int) errors_per_epoch: number of mis-classifications (updates) in each epoch
         """
         self.learning_rate = learning_rate
@@ -24,11 +29,11 @@ class AdaptiveLinearNeuron:
         self.cost = []
 
     def fit(self, samples, true_labels):
-        """Fit the AdaptiveLinearNeuron to the training data.
+        """Fit the neuron to the training data.
 
         :param np.array samples: samples in a matrix of shape (n_samples, n_features)
         :param np.array true_labels: target values in a vector of shape (n_samples)
-        :return AdaptiveLinearNeuron:
+        :return AdaptiveLinearNeuronWithGradientDescent:
         """
         random_number_generator = np.random.RandomState(self.random_state)
         self.weights = random_number_generator.normal(loc=0.0, scale=0.01, size=1 + samples.shape[1])
@@ -44,7 +49,7 @@ class AdaptiveLinearNeuron:
         return self
 
     def net_input(self, samples):
-        """Calculate the net input of a sample into the AdaptiveLinearNeuron.
+        """Calculate the net input of a sample into the neuron.
 
         :param np.array samples: shape (n_samples, n_features)
         :return float:

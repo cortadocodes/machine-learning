@@ -1,15 +1,16 @@
 from matplotlib import pyplot as plt
 import numpy as np
 
-from machine_learning.adaptive_linear_neuron.adaptive_linear_neuron import AdaptiveLinearNeuron
+from machine_learning.adaptive_linear_neuron.adaptive_linear_neuron_with_gradient_descent import \
+    AdaptiveLinearNeuronWithGradientDescent
 from machine_learning.datasets.iris import samples
 from machine_learning.datasets.iris import binary_labels
 
 
-adaline_1 = AdaptiveLinearNeuron(learning_rate=0.01, number_of_training_iterations=10)
+adaline_1 = AdaptiveLinearNeuronWithGradientDescent(learning_rate=0.01, number_of_training_iterations=10)
 adaline_1.fit(samples, binary_labels)
 
-adaline_2 = AdaptiveLinearNeuron(learning_rate=0.0001, number_of_training_iterations=10)
+adaline_2 = AdaptiveLinearNeuronWithGradientDescent(learning_rate=0.0001, number_of_training_iterations=10)
 adaline_2.fit(samples, binary_labels)
 
 fig, ax = plt.subplots(nrows=1, ncols=2, figsize=(10,4))
