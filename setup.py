@@ -11,7 +11,8 @@ setup(
     install_requires=[
         'matplotlib>=3.1',
         'numpy>=1.16',
-        'pandas>=0.24'
+        'pandas>=0.24',
+        'sklearn'
     ],
     extras_require = {
         'development': [
