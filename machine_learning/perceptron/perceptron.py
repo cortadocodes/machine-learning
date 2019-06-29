@@ -14,7 +14,7 @@ class Perceptron:
     * Will only converge if the learning rate is low enough
     """
 
-    def __init__(self, learning_rate=0.01, number_of_training_iterations=50, random_state_seed=1):
+    def __init__(self, learning_rate = 0.01, number_of_training_iterations = 50, random_state_seed = 1):
         """Initialise a Perceptron. Note that for the learning rate to have an effect on the classification outcome, the
         weights must be initialised to non-zero values.
 
@@ -39,7 +39,7 @@ class Perceptron:
         :return Perceptron:
         """
         random_number_generator = np.random.RandomState(self.random_state)
-        self.weights = random_number_generator.normal(loc=0.0, scale=0.01, size=1 + training_samples.shape[1])
+        self.weights = random_number_generator.normal(loc = 0.0, scale = 0.01, size = 1 + training_samples.shape[1])
         self.errors_per_epoch = []
 
         for _ in range(self.number_of_training_iterations):

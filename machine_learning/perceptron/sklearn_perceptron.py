@@ -59,5 +59,5 @@ plot_decision_regions(
 )
 plt.xlabel('Standardised petal length')
 plt.ylabel('Standardised petal width')
-plt.legend(loc='upper left')
+plt.legend(loc = 'upper left')
 plt.show()

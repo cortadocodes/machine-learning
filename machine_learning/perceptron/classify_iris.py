@@ -12,11 +12,11 @@ def plot_data(samples):
     :param pd.DataFrame samples:
     :return None:
     """
-    plt.scatter(samples[:50, 0], samples[:50, 1], color='red', marker='o', label='setosa')
-    plt.scatter(samples[50:100, 0], samples[50:100, 1], color='blue', marker='x', label='versicolor')
+    plt.scatter(samples[:50, 0], samples[:50, 1], color = 'red', marker = 'o', label = 'setosa')
+    plt.scatter(samples[50:100, 0], samples[50:100, 1], color = 'blue', marker = 'x', label = 'versicolor')
     plt.xlabel('Sepal length (cm)')
     plt.ylabel('Petal length (cm)')
-    plt.legend(loc='upper left')
+    plt.legend(loc = 'upper left')
     plt.show()
 
 
@@ -27,7 +27,7 @@ def plot_errors_per_epoch(perceptron):
     :return None:
     """
     epochs = range(len(perceptron.errors_per_epoch))
-    plt.plot(epochs, perceptron.errors_per_epoch, marker='o')
+    plt.plot(epochs, perceptron.errors_per_epoch, marker = 'o')
     plt.xlabel('Epochs')
     plt.ylabel('Errors per epoch')
     plt.show()
@@ -36,7 +36,7 @@ def plot_errors_per_epoch(perceptron):
 if __name__ == '__main__':
     plot_data(samples)
 
-    perceptron = Perceptron(learning_rate=0.1, number_of_training_iterations=10)
+    perceptron = Perceptron(learning_rate = 0.1, number_of_training_iterations = 10)
     perceptron.fit(samples, binary_labels)
 
     plot_errors_per_epoch(perceptron)

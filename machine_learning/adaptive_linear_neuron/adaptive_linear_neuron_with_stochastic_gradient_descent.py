@@ -12,7 +12,7 @@ class AdaptiveLinearNeuronWithStochasticGradientDescent:
     * Uses a sum-squared-error (SSE) function as the cost function
     """
 
-    def __init__(self, learning_rate=0.01, number_of_training_iterations=50, random_state_seed=1, shuffle=True):
+    def __init__(self, learning_rate = 0.01, number_of_training_iterations = 50, random_state_seed = 1, shuffle = True):
         """Initialise an adaptive linear neuron that uses gradient descent. Note that for the learning rate to
         have an effect on the classification outcome, the weights must be initialised to non-zero values.
 
@@ -109,7 +109,7 @@ class AdaptiveLinearNeuronWithStochasticGradientDescent:
         :return None:
         """
         self.random_number_generator = np.random.RandomState(self.random_state)
-        self.weights = self.random_number_generator.normal(loc=0.0, scale=0.01, size=1 + length)
+        self.weights = self.random_number_generator.normal(loc = 0.0, scale = 0.01, size = 1 + length)
         self.weights_initialised = True
 
     def _update_weights(self, sample, label):

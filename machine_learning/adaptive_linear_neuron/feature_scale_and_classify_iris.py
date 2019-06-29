@@ -28,7 +28,7 @@ def standardise_samples(samples):
     return standardised_samples
 
 
-adaline = AdaptiveLinearNeuronWithGradientDescent(learning_rate=0.01, number_of_training_iterations=15)
+adaline = AdaptiveLinearNeuronWithGradientDescent(learning_rate = 0.01, number_of_training_iterations = 15)
 standardised_samples = standardise_samples(samples)
 adaline.fit(standardised_samples, binary_labels)
 

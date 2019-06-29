@@ -32,7 +32,7 @@ def plot_decision_regions(samples, targets, classifier, resolution = 0.02, test_
     predictions = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T).reshape(xx1.shape)
 
     # Create contour plot of classification.
-    plt.contourf(xx1, xx2, predictions, alpha=0.3, cmap=colour_map)
+    plt.contourf(xx1, xx2, predictions, alpha = 0.3, cmap = colour_map)
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
 
