@@ -50,7 +50,7 @@ def plot_decision_regions(samples, targets, classifier, resolution = 0.02, test_
 
     # Highlight test samples
     if test_index:
-        test_samples, test_targets = samples[test_index, :], targets[test_index]
+        test_samples = samples[test_index, :]
 
         plt.scatter(
             test_samples[:, 0],

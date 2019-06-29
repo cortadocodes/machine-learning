@@ -13,7 +13,7 @@ adaline_1.fit(samples, binary_labels)
 adaline_2 = AdaptiveLinearNeuronWithGradientDescent(learning_rate = 0.0001, number_of_training_iterations = 10)
 adaline_2.fit(samples, binary_labels)
 
-fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize = (10,4))
+fig, ax = plt.subplots(nrows = 1, ncols = 2, figsize = (10, 4))
 
 ax[0].plot(
     range(1, len(adaline_1.cost) + 1),
