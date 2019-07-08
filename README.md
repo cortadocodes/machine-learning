@@ -6,8 +6,9 @@ Raschka and Vahid Mirjalili.
 
 | Name | Type | Activation function | Cost function | Pros | Cons |
 | :--- | :--- | :------------------ | :------------ | :--- | :--- |
-| Perceptron | Binary classifer; single layer neural network | None | None | Guaranteed to converge if classes are linearly separable | Only converges if classes are linearly separable and learning rate is low enough |
+| Perceptron | Binary classifier; single layer neural network | None | None | Guaranteed to converge if classes are linearly separable | Only converges if classes are linearly separable and learning rate is low enough |
 | Adaptive linear neuron | Binary classifier; single layer neural network | Linear | Sum of squared errors | An improvement on the perceptron |
+| Logistic regression | Binary classifier; single layer neural network | Sigmoid | Logistic cost function (log-likelihood) | | Gives 'probabilities' as well as predictions |
 
 ## Cost minimisation methods
 * Gradient descent (or batch gradient descent)
